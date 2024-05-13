@@ -44,14 +44,16 @@ class _WelcomePageState extends State<WelcomePage> {
                   right: Dimensions.width20,
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    // Column For TEXT
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         BigText(
                           text: "Trip",
                           size: Dimensions.font20 * 2,
-                          color: AppColor.primaryColor,
+                          color: AppColor.blackColor,
                         ),
                         SmallText(
                           text: "Mountain",
@@ -69,9 +71,36 @@ class _WelcomePageState extends State<WelcomePage> {
                         SizedBox(height: Dimensions.height45),
                         ResponsiveButton(
                           width: Dimensions.width30 * 5,
+                          color: AppColor.whiteColor,
                         ),
                       ],
-                    )
+                    ),
+
+                    //Column For DOOTED
+                    Column(
+                      children: List.generate(3, (indexDots) {
+                        return Container(
+                          margin:
+                              EdgeInsets.only(bottom: Dimensions.height10 / 5),
+                          width: Dimensions.width10,
+                          height: index == indexDots
+                              ? Dimensions.height30
+                              : Dimensions.height10,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: AppColor.blackColor,
+                            ),
+                            borderRadius:
+                                BorderRadius.circular(Dimensions.radius15 / 2),
+                            color: index == indexDots
+                                ? AppColor.blackColor
+                                : AppColor.whiteColor,
+                          ),
+                        );
+                      }),
+                    ),
+
+                    //
                   ],
                 ),
               ),
