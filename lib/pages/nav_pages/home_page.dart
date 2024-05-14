@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             BorderRadius.circular(Dimensions.radius15),
                         color: AppColor.whiteColor,
                         image: const DecorationImage(
-                          image: AssetImage("assets/images/mountain.jpg"),
+                          image: AssetImage("images/mountain.jpg"),
                           fit: BoxFit.cover,
                         ),
                       ),

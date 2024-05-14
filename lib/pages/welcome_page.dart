@@ -23,62 +23,64 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: images.length,
-          itemBuilder: (_, index) {
-            return Container(
-              width: double.maxFinite,
-              height: double.maxFinite,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    "assets/images/${images[index]}",
-                  ),
-                  fit: BoxFit.cover,
+        scrollDirection: Axis.vertical,
+        itemCount: images.length,
+        itemBuilder: (_, index) {
+          return Container(
+            width: double.maxFinite,
+            height: double.maxFinite,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  "images/${images[index]}",
                 ),
+                fit: BoxFit.cover,
               ),
-              child: Container(
-                margin: EdgeInsets.only(
-                  top: Dimensions.height10 * 10,
-                  left: Dimensions.width20,
-                  right: Dimensions.width20,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // Column For TEXT
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        BigText(
-                          text: "Trip",
-                          size: Dimensions.font20 * 2,
-                          color: AppColor.blackColor,
+            ),
+            child: Container(
+              margin: EdgeInsets.only(
+                top: Dimensions.height10 * 10,
+                left: Dimensions.width20,
+                right: Dimensions.width20,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Column For TEXT
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      BigText(
+                        text: "Trip",
+                        size: Dimensions.font20 * 2,
+                        color: AppColor.blackColor,
+                      ),
+                      SmallText(
+                        text: "Mountain",
+                        size: Dimensions.font20 * 2,
+                      ),
+                      SizedBox(height: Dimensions.height20),
+                      SizedBox(
+                        width: Dimensions.width30 * 10,
+                        child: SmallText(
+                          text:
+                              "We spent the afternoon hiking around the lake. She hiked 10 miles in the hot desert sun. We hiked some of the shorter trails",
+                          size: Dimensions.font20,
                         ),
-                        SmallText(
-                          text: "Mountain",
-                          size: Dimensions.font20 * 2,
-                        ),
-                        SizedBox(height: Dimensions.height20),
-                        SizedBox(
-                          width: Dimensions.width30 * 10,
-                          child: SmallText(
-                            text:
-                                "We spent the afternoon hiking around the lake. She hiked 10 miles in the hot desert sun. We hiked some of the shorter trails",
-                            size: Dimensions.font20,
-                          ),
-                        ),
-                        SizedBox(height: Dimensions.height45),
-                        ResponsiveButton(
-                          width: Dimensions.width30 * 5,
-                          color: AppColor.whiteColor,
-                        ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(height: Dimensions.height45),
+                      ResponsiveButton(
+                        width: Dimensions.width30 * 5,
+                        color: AppColor.whiteColor,
+                      ),
+                    ],
+                  ),
 
-                    //Column For DOOTED
-                    Column(
-                      children: List.generate(3, (indexDots) {
+                  //Column For DOOTED
+                  Column(
+                    children: List.generate(
+                      3,
+                      (indexDots) {
                         return Container(
                           margin:
                               EdgeInsets.only(bottom: Dimensions.height10 / 5),
@@ -97,15 +99,17 @@ class _WelcomePageState extends State<WelcomePage> {
                                 : AppColor.whiteColor,
                           ),
                         );
-                      }),
+                      },
                     ),
+                  ),
 
-                    //
-                  ],
-                ),
+                  //
+                ],
               ),
-            );
-          }),
+            ),
+          );
+        },
+      ),
     );
   }
 }

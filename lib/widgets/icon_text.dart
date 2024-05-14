@@ -3,9 +3,18 @@ import 'package:travel_app_bloc/app_constants/colors.dart';
 import 'package:travel_app_bloc/app_constants/dimensions.dart';
 import 'package:travel_app_bloc/widgets/small_text.dart';
 
-class IconAndText extends StatelessWidget {
+class IconAndText extends StatefulWidget {
   IconAndText({super.key});
 
+  @override
+  State<IconAndText> createState() => _IconAndTextState();
+}
+
+class _IconAndTextState extends State<IconAndText> {
+
+  var images = {
+    "": ""
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +28,7 @@ class IconAndText extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius15),
               image: const DecorationImage(
-                image: AssetImage("assets/images/mountain.jpg"),
+                image: AssetImage("images/mountain.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
