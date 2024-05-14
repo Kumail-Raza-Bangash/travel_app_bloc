@@ -7,7 +7,7 @@ class BarItemPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: const Center(
-        child: Text("Search Page"),
+        child: Text("Bar Item Page"),
       ),
     );
   }

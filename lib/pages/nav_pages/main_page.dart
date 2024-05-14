@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app_bloc/app_constants/colors.dart';
+import 'package:travel_app_bloc/app_constants/dimensions.dart';
 import 'package:travel_app_bloc/pages/nav_pages/bar_item_page.dart';
 import 'package:travel_app_bloc/pages/nav_pages/home_page.dart';
 import 'package:travel_app_bloc/pages/nav_pages/my_page.dart';
@@ -31,10 +32,12 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[0],
+      body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: onTap,
+        selectedFontSize: Dimensions.font16,
+        unselectedFontSize: 0,
         elevation: 0,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
