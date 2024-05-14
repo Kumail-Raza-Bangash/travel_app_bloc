@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
           // end Tabbar
 
-          SizedBox(height: Dimensions.height30),
+          SizedBox(height: Dimensions.height45),
           // Explore more
           Container(
             margin: EdgeInsets.only(
