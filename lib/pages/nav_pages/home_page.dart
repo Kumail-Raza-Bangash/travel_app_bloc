@@ -1,5 +1,6 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:travel_app_bloc/app_constants/colors.dart';
@@ -146,14 +147,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           SizedBox(height: Dimensions.height15),
           // Bottom Icons
           SizedBox(
-            height: Dimensions.height30 * 5,
-            child: ListView.builder(
-              itemCount: 10,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (BuildContext context, int index) {
-                return IconAndText();
-              },
-            ),
+            height: Dimensions.height30 * 4,
+            child: IconAndText(),
           )
           // end Bottom Icons
         ],
