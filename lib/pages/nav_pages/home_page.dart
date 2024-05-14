@@ -1,7 +1,12 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:travel_app_bloc/app_constants/colors.dart';
 import 'package:travel_app_bloc/app_constants/dimensions.dart';
 import 'package:travel_app_bloc/widgets/big_text.dart';
+import 'package:travel_app_bloc/widgets/icon_text.dart';
+import 'package:travel_app_bloc/widgets/small_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -57,8 +62,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: BigText(text: "Discover"),
           ),
           // end Discover Text
+
           SizedBox(height: Dimensions.height20),
-          Container(
+          // Tabbar
+          SizedBox(
             child: TabBar(
               controller: _tabController,
               labelPadding: EdgeInsets.only(
@@ -72,26 +79,83 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               indicatorColor: AppColor.primaryColor,
               indicator:
                   CircleTabIndicator(color: AppColor.primaryColor, radius: 3),
-              tabs: [
+              tabs: const [
                 Tab(text: "Places"),
                 Tab(text: "Inspiration"),
                 Tab(text: "Emotions"),
               ],
             ),
           ),
-          Container(
-            height: 300,
-            color: Colors.red,
+          SizedBox(
+            height: Dimensions.height45 * 8,
             width: double.maxFinite,
             child: TabBarView(
               controller: _tabController,
               children: [
-                Text("Hy"),
-                Text("There"),
-                Text("Bye"),
+                ListView.builder(
+                  itemCount: 3,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      width: Dimensions.width20 * 10,
+                      margin: EdgeInsets.all(Dimensions.radius15 / 2),
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius15),
+                        color: AppColor.whiteColor,
+                        image: const DecorationImage(
+                          image: AssetImage("assets/images/mountain.jpg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                const Text("There"),
+                const Text("Bye"),
               ],
             ),
+          ),
+          // end Tabbar
+
+          SizedBox(height: Dimensions.height30),
+          // Explore more
+          Container(
+            margin: EdgeInsets.only(
+              left: Dimensions.width20,
+              right: Dimensions.width20,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                BigText(
+                  text: "Explore more",
+                  size: Dimensions.font20,
+                  color: AppColor.primaryColor,
+                ),
+                SmallText(
+                  text: "See all",
+                  color: AppColor.secondaryColor,
+                  size: Dimensions.font16,
+                ),
+              ],
+            ),
+          ),
+          // end Explore more
+
+          SizedBox(height: Dimensions.height15),
+          // Bottom Icons
+          SizedBox(
+            height: Dimensions.height30 * 5,
+            child: ListView.builder(
+              itemCount: 10,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context, int index) {
+                return IconAndText();
+              },
+            ),
           )
+          // end Bottom Icons
         ],
       ),
     );
@@ -106,7 +170,6 @@ class CircleTabIndicator extends Decoration {
   CircleTabIndicator({required this.color, required this.radius});
   @override
   BoxPainter createBoxPainter([VoidCallback? onChanged]) {
-    // TODO: implement createBoxPainter
     return _CirclePanter(color: color, radius: radius);
   }
 }
