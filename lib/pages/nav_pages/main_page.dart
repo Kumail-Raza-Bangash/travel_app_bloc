@@ -13,6 +13,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  int currentIndex = 0;
+
   List pages = [
     HomePage(),
     BarItemPage(),
@@ -20,18 +22,25 @@ class _MainPageState extends State<MainPage> {
     MyPage(),
   ];
 
-  void onTap(int index) {}
+  void onTap(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[0],
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: currentIndex,
+        onTap: onTap,
         elevation: 0,
         showUnselectedLabels: false,
-        selectedItemColor: AppColor.blackColor,
-        unselectedItemColor: AppColor.greyColor,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: AppColor.primaryColor,
+        selectedItemColor: AppColor.whiteColor,
+        unselectedItemColor: AppColor.secondaryColor,
         items: const [
           BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
           BottomNavigationBarItem(label: "Bar", icon: Icon(Icons.bar_chart)),
