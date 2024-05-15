@@ -22,7 +22,7 @@ class ResponsiveButton extends StatelessWidget {
       width: width,
       height: Dimensions.height30 * 2,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(Dimensions.radius20 / 2),
+        borderRadius: BorderRadius.circular(Dimensions.radius10),
         color: color,
         border: Border.all(
           color: AppColor.blackColor,

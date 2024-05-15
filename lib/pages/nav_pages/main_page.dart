@@ -17,10 +17,10 @@ class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
 
   List pages = [
-    HomePage(),
-    BarItemPage(),
-    SearchPage(),
-    MyPage(),
+    const HomePage(),
+    const BarItemPage(),
+    const SearchPage(),
+    const MyPage(),
   ];
 
   void onTap(int index) {
@@ -36,7 +36,7 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: onTap,
-        selectedFontSize: Dimensions.font16,
+        selectedFontSize: Dimensions.font15,
         unselectedFontSize: 0,
         elevation: 0,
         showUnselectedLabels: false,

@@ -9,7 +9,7 @@ class BigText extends StatelessWidget {
 
   BigText({
     super.key,
-    this.size = 30.0,
+    required this.size,
     required this.text,
     this.color = AppColor.blackColor,
   });

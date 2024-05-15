@@ -60,7 +60,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               left: Dimensions.width20,
               right: Dimensions.width20,
             ),
-            child: BigText(text: "Discover"),
+            child: BigText(
+              text: "Discover",
+              size: Dimensions.font30,
+            ),
           ),
           // end Discover Text
 
@@ -99,7 +102,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       width: Dimensions.width20 * 10,
-                      margin: EdgeInsets.all(Dimensions.radius15 / 2),
+                      margin: EdgeInsets.all(Dimensions.radius5),
                       decoration: BoxDecoration(
                         borderRadius:
                             BorderRadius.circular(Dimensions.radius15),
@@ -137,14 +140,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 SmallText(
                   text: "See all",
                   color: AppColor.secondaryColor,
-                  size: Dimensions.font16,
+                  size: Dimensions.font15,
                 ),
               ],
             ),
           ),
           // end Explore more
 
-          SizedBox(height: Dimensions.height15),
+          SizedBox(height: Dimensions.height10),
           // Bottom Icons
           SizedBox(
             height: Dimensions.height30 * 4,

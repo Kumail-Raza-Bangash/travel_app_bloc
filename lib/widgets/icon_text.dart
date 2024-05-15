@@ -26,9 +26,9 @@ class _IconAndTextState extends State<IconAndText> {
       itemBuilder: (BuildContext context, int index) {
         return Container(
           margin: EdgeInsets.only(
-            left: Dimensions.width10 / 2,
+            left: Dimensions.width5,
             right: Dimensions.width20,
-            top: Dimensions.height10 / 2,
+            top: Dimensions.height5,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -45,7 +45,7 @@ class _IconAndTextState extends State<IconAndText> {
                 ),
               ),
               SizedBox(
-                height: Dimensions.height10 / 2,
+                height: Dimensions.height5,
               ),
               SmallText(
                 text: images.values.elementAt(index),

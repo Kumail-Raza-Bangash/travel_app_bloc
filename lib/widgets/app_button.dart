@@ -44,6 +44,7 @@ class AppButton extends StatelessWidget {
             ? BigText(
                 text: text!,
                 color: color,
+                size: Dimensions.font30,
               )
             : Icon(
                 icon!,

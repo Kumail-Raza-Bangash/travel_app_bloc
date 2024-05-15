@@ -14,8 +14,8 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
-  int gottenStars = 3;
-  int selectText = 1;
+  int gottenStars = 4;
+  int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +32,7 @@ class _DetailPageState extends State<DetailPage> {
               child: Container(
                 width: double.maxFinite,
                 height: Dimensions.height45 * 10,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("images/image01.jpg"),
                     fit: BoxFit.cover,
@@ -40,7 +40,7 @@ class _DetailPageState extends State<DetailPage> {
                 ),
                 child: IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.menu,
                   ),
                 ),
@@ -56,7 +56,7 @@ class _DetailPageState extends State<DetailPage> {
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.menu,
                     ),
                     color: AppColor.whiteColor,
@@ -68,7 +68,7 @@ class _DetailPageState extends State<DetailPage> {
 
             //Bottom Content
             Positioned(
-              top: Dimensions.height45 * 9,
+              top: Dimensions.height45 * 8,
               left: 0,
               right: 0,
               child: Container(
@@ -92,71 +92,102 @@ class _DetailPageState extends State<DetailPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        BigText(text: "Text"),
+                        BigText(
+                          text: "9 Pixels",
+                          size: Dimensions.font30,
+                        ),
                         BigText(
                           text: "\$250",
                           color: AppColor.primaryColor,
+                          size: Dimensions.font30,
                         ),
                       ],
                     ),
-                    SizedBox(height: Dimensions.height10 / 2),
+                    SizedBox(height: Dimensions.height5),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.location_on,
                           color: AppColor.secondaryColor,
                         ),
                         SizedBox(width: Dimensions.width10 / 2),
-                        SmallText(text: "Lahore, Pakistan"),
+                        SmallText(
+                          text: "Lahore, Pakistan",
+                          size: Dimensions.font15,
+                        ),
                       ],
                     ),
-                    SizedBox(height: Dimensions.height10 / 2),
                     Row(
                       children: [
                         Wrap(
-                          children: List.generate(5, (index) {
-                            return Icon(
-                              Icons.star,
-                              color: index < gottenStars
-                                  ? AppColor.secondaryColor
-                                  : AppColor.greyColor,
-                            );
-                          }),
+                          children: List.generate(
+                            5,
+                            (index) {
+                              return Icon(
+                                Icons.star,
+                                color: index < gottenStars
+                                    ? AppColor.secondaryColor
+                                    : AppColor.greyColor,
+                              );
+                            },
+                          ),
                         ),
-                        SmallText(text: "(5.0)"),
+                        SmallText(
+                          text: "(4.0)",
+                          size: Dimensions.font15,
+                        ),
                       ],
                     ),
                     // end Top Texts
                     SizedBox(height: Dimensions.height30),
                     BigText(
                       text: "People",
-                      size: Dimensions.font26,
+                      size: Dimensions.font25,
                     ),
-                    SmallText(text: "Number of people in your group"),
-                    SizedBox(height: Dimensions.height20),
+                    SmallText(
+                      text: "Number of people in your group",
+                      size: Dimensions.font15,
+                    ),
+                    SizedBox(height: Dimensions.height10),
                     Wrap(
                       children: List.generate(
                         5,
                         (index) {
-                          return AppButton(
-                            text: (index + 1).toString(),
-                            //icon: Icons.headphones,
-                            isIcon: false,
-                            color: AppColor.whiteColor,
-                            backgroundColor: index < selectText
-                                ? AppColor.primaryButtonColor
-                                : AppColor.secondaryColor,
-                            borderColor: index < selectText
-                                ? AppColor.primaryButtonColor
-                                : AppColor.secondaryColor,
-                            size: Dimensions.height30 * 2,
+                          return InkWell(
+                            onTap: () {
+                              setState(() {
+                                selectedIndex = index;
+                              });
+                            },
+                            child: AppButton(
+                              text: (index + 1).toString(),
+                              //icon: Icons.headphones,
+                              isIcon: false,
+                              color: AppColor.whiteColor,
+                              backgroundColor: selectedIndex == index
+                                  ? AppColor.primaryColor
+                                  : AppColor.secondaryColor,
+                              borderColor: selectedIndex == index
+                                  ? AppColor.primaryColor
+                                  : AppColor.secondaryColor,
+                              size: Dimensions.height10 * 6,
+                            ),
                           );
                         },
                       ),
                     ),
 
+                    SizedBox(height: Dimensions.height20),
                     // Description
-
+                    BigText(
+                      text: "Description",
+                      size: Dimensions.font25,
+                    ),
+                    SmallText(
+                      text:
+                          "You must go for a travel. Travelling helps get rid of pressure. Go to mountains to see the nature.",
+                      size: Dimensions.font15,
+                    ),
                     // end Description
                   ],
                 ),
