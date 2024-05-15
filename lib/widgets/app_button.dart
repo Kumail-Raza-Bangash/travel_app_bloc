@@ -1,12 +1,14 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:travel_app_bloc/app_constants/colors.dart';
 import 'package:travel_app_bloc/app_constants/dimensions.dart';
 import 'package:travel_app_bloc/widgets/big_text.dart';
 
 class AppButton extends StatelessWidget {
   final Color color;
   final Color backgroundColor;
+  final Color iconColor;
   double size;
   final Color borderColor;
   String? text;
@@ -20,8 +22,9 @@ class AppButton extends StatelessWidget {
     required this.borderColor,
     required this.size,
     required this.isIcon,
-    this.text = "3",
-    this.icon = Icons.heart_broken,
+    this.text = "",
+    this.icon = Icons.favorite_border,
+    this.iconColor = AppColor.primaryColor,
   });
 
   @override
@@ -48,7 +51,7 @@ class AppButton extends StatelessWidget {
               )
             : Icon(
                 icon!,
-                color: color,
+                color: iconColor,
               ),
       ),
     );

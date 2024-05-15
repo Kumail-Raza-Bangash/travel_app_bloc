@@ -4,6 +4,7 @@ import 'package:travel_app_bloc/app_constants/colors.dart';
 import 'package:travel_app_bloc/app_constants/dimensions.dart';
 import 'package:travel_app_bloc/widgets/app_button.dart';
 import 'package:travel_app_bloc/widgets/big_text.dart';
+import 'package:travel_app_bloc/widgets/responsive_button.dart';
 import 'package:travel_app_bloc/widgets/small_text.dart';
 
 class DetailPage extends StatefulWidget {
@@ -194,6 +195,37 @@ class _DetailPageState extends State<DetailPage> {
               ),
             ),
             //end Bottom Content
+
+            // Bottom
+            Positioned(
+              bottom: Dimensions.height20,
+              left: Dimensions.width20,
+              right: Dimensions.width20,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AppButton(
+                    color: AppColor.blackColor,
+                    backgroundColor: AppColor.transparentColor,
+                    borderColor: AppColor.primaryColor,
+                    size: Dimensions.radius30 * 2,
+                    isIcon: true,
+                    icon: Icons.favorite_border,
+                  ),
+                  ResponsiveButton(
+                    height: Dimensions.height30 * 2,
+                    isResponsive: true,
+                    text: 'Book Trip Now',
+                    fontSize: Dimensions.font20,
+                    textColor: AppColor.whiteColor,
+                    color: AppColor.primaryColor,
+                    borderColor: AppColor.primaryColor,
+                    iconHeight: Dimensions.height20,
+                  )
+                ],
+              ),
+            ),
+            // end Bottom
           ],
         ),
       ),
