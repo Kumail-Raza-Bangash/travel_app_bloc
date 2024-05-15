@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'package:travel_app_bloc/app_constants/colors.dart';
+import 'package:travel_app_bloc/app_constants/dimensions.dart';
 
 class LoadingWidget extends StatefulWidget {
   const LoadingWidget({super.key});
@@ -34,9 +35,9 @@ class _LoadingWidgetState extends State<LoadingWidget>
                 angle: _controller.value * 5 * pi,
                 child: CustomPaint(
                   painter: InfinityPainter(),
-                  child: const SizedBox(
-                    width: 70,
-                    height: 70,
+                  child: SizedBox(
+                    width: Dimensions.width30 * 2,
+                    height: Dimensions.height30 * 2,
                   ),
                 ),
               );
