@@ -53,11 +53,12 @@ class _WelcomePageState extends State<WelcomePage> {
                       BigText(
                         text: "Trip",
                         size: Dimensions.font20 * 2,
-                        color: AppColor.blackColor,
+                        color: AppColor.primaryColor,
                       ),
                       SmallText(
                         text: "Mountain",
                         size: Dimensions.font20 * 2,
+                        color: AppColor.lightBlackColor,
                       ),
                       SizedBox(height: Dimensions.height20),
                       SizedBox(
@@ -66,12 +67,14 @@ class _WelcomePageState extends State<WelcomePage> {
                           text:
                               "We spent the afternoon hiking around the lake. She hiked 10 miles in the hot desert sun. We hiked some of the shorter trails",
                           size: Dimensions.font20,
+                          color: AppColor.lightBlackColor,
                         ),
                       ),
                       SizedBox(height: Dimensions.height45),
                       ResponsiveButton(
                         width: Dimensions.width30 * 5,
-                        color: AppColor.whiteColor,
+                        color: AppColor.secondaryColor,
+                        borderColor: AppColor.whiteColor,
                       ),
                     ],
                   ),
