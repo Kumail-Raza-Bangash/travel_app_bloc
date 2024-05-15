@@ -105,18 +105,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         itemCount: info.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            width: Dimensions.width20 * 10,
-                            margin: EdgeInsets.all(Dimensions.radius5),
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.circular(Dimensions.radius15),
-                              color: AppColor.whiteColor,
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                  "http://mark.bslmeiyu.com/uploads/${info[index].img}",
+                          return GestureDetector(
+                            onTap: () {
+                              BlocProvider.of<AppCubits>(context)
+                                  .detailPage(info[index]);
+                            },
+                            child: Container(
+                              width: Dimensions.width20 * 10,
+                              margin: EdgeInsets.all(Dimensions.radius5),
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.circular(Dimensions.radius15),
+                                color: AppColor.whiteColor,
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    "http://mark.bslmeiyu.com/uploads/${info[index].img}",
+                                  ),
+                                  fit: BoxFit.cover,
                                 ),
-                                fit: BoxFit.cover,
                               ),
                             ),
                           );
