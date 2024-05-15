@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travel_app_bloc/app_constants/colors.dart';
 import 'package:travel_app_bloc/app_constants/dimensions.dart';
+import 'package:travel_app_bloc/cubit/app_cubits.dart';
 import 'package:travel_app_bloc/widgets/big_text.dart';
 import 'package:travel_app_bloc/widgets/responsive_button.dart';
 import 'package:travel_app_bloc/widgets/small_text.dart';
@@ -71,10 +74,22 @@ class _WelcomePageState extends State<WelcomePage> {
                         ),
                       ),
                       SizedBox(height: Dimensions.height45),
-                      ResponsiveButton(
-                        width: Dimensions.width30 * 5,
-                        color: AppColor.secondaryColor,
-                        borderColor: AppColor.whiteColor,
+                      GestureDetector(
+                        onTap: () {
+                          BlocProvider.of<AppCubits>(context).getData();
+                        },
+                        child: Container(
+                          width: Dimensions.width30 * 5,
+                          child: Row(
+                            children: [
+                              ResponsiveButton(
+                                width: Dimensions.width30 * 5,
+                                color: AppColor.secondaryColor,
+                                borderColor: AppColor.whiteColor,
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ],
                   ),
